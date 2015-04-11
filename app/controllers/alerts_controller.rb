@@ -15,23 +15,16 @@ class AlertsController < ApplicationController
 
   def create
   	@alert = Alert.new(alert_params)
-  	response_to do |format|
-  		if @alert.save
-  			format.html { redirect_to @alert, notice: 'alert was successfully created.' }
-      		format.json { render json: @alert, status: :created, location: @alert }
-      	else
-      		format.html { render action: "new" }
-      		format.json { render json: @alert.errors, status: :unprocessable_entity }
-      	end
-
-  	puts("create function for a new alert!!!")
-  end
-
-  def test
-  	puts "testing"
   	respond_to do |format|
-  		format.json { puts "aa" }
-  	end
+  		if @alert.save
+  			format.html { puts 'alert was successfully created.' }
+        format.json { render json: @alert, status: :created, location: @alert }
+      else
+      	format.html { render action: "new" }
+      	format.json { render json: @alert.errors, status: :unprocessable_entity }
+      end
+  	  puts("create function for a new alert!!!")
+    end
   end
 
   private
@@ -40,6 +33,7 @@ class AlertsController < ApplicationController
   	end
 
   	def alert_params
-  		params.require(:alert).permit(:address,:city)
+      # params.require(:alert).permit(:address,:city)
+      params.require(:alert).permit(:address,:city,:state,:content)
   	end
 end

@@ -30,7 +30,7 @@ $(document).ready(function(){
 		myElement.textContent = "left pan, down pan and tap" +" gesture detected.";
 
 		$.post('/alerts#create',
-			{address:"500 College Ave",city:"Swarthmore"},
+			{alert:{address:"500 College Ave",city:"Swarthmore", state:"PA", content:"Emergency help!"} },
 			function(){
 				alert("create a new object");
 			});
