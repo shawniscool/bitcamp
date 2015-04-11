@@ -1,4 +1,6 @@
 RailsStarter::Application.routes.draw do
+  get "users/new"
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
@@ -11,6 +13,7 @@ RailsStarter::Application.routes.draw do
   # This route can be invoked with purchase_url(:id => product.id)
   get ':controller(/:action(/:id))'
   root :to => 'say#hello'
+  get 'signup'  => 'users#new'
 
   # Sample resource route (maps HTTP verbs to controller actions automatically):
   #   resources :products
