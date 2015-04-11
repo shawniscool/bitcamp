@@ -1,6 +1,7 @@
 #myElement {
-  background: silver;
+  background: black;
   height: 300px;
   text-align: center;
+  color:white;
   font: 30px/300px Helvetica, Arial, sans-serif;
 }

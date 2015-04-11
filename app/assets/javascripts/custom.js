@@ -28,7 +28,31 @@ $(document).ready(function(){
 	function emergency(event){
 		console.log(event.type);
 		myElement.textContent = "left pan, down pan and tap" +" gesture detected.";
-		// alert("call 911");
+
+		$.post('/alerts#create',
+			{address:"500 College Ave",city:"Swarthmore"},
+			function(){
+				alert("create a new object");
+			});
+
+		// $.ajax({
+		//     url: "/alerts",
+		//     type: "POST",
+		//     data: {alert: {
+		//              address: "a", 
+		//              city: "b",}},
+		//     success: function(resp){alert("aa")}
+		// });
+		
+		// $.ajax({
+		// 	type:'POST', 
+		// 	url: '/test', 
+		// 	dataType: 'script',
+		// 	data: { name: "aa", address:"bb"} ,
+		// });
+
+
+		// $.ajax({url:"/alerts/new",type:"POST",});
 	}
 
 	first.on("panleft", panLeft);
