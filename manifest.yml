@@ -1,8 +1,9 @@
 applications:
 - disk_quota: 1024M
-  host: gestures
-  name: gestures
+  buildpack: php_buildpack
+  host: quick
+  name: quick
   path: .
   domain: mybluemix.net
   instances: 1
-  memory: 256M
+  memory: 128M
