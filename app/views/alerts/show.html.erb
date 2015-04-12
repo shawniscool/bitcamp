@@ -1,24 +1,26 @@
 <script type="text/javascript">
-$( document ).ready(function() {
-    (function pulse(){
+    function pulse(){
         $('#recording').delay(200).fadeOut('slow').delay(50).fadeIn('slow',pulse);
-    })();
-    
-$('#l1').delay(1029).attr("src",<%= image_path("checked.png") %>);
+    }
 
-$('#compute').click(function () {
-   $('#compute').hide();
-   $('#loading').fadeIn('slow').delay(4000).fadeOut('slow');
-   $('#output').delay(4001).fadeIn('slow');
-   $('#editor').fadeOut('fast');
-   $('#mid-compute').delay(4010).slideDown('slow');
-});
-});
+    $(function(){
+        pulse();
+    });
+
+
+    $('#l1').delay(1029).attr("src","<%= image_path("checked.png") %>");
+
+    $('#compute').click(function () {
+       $('#compute').hide();
+       $('#loading').fadeIn('slow').delay(4000).fadeOut('slow');
+       $('#output').delay(4001).fadeIn('slow');
+       $('#editor').fadeOut('fast');
+       $('#mid-compute').delay(4010).slideDown('slow');
+       // $('#recording').delay(200).fadeOut('slow');
+    });
+
 </script>
-<body>
-	<div id="stage1">
-    
-    </div>
+	<div id="stage1"></div>
     
     <div id="stage2" class="full">
     
@@ -26,7 +28,7 @@ $('#compute').click(function () {
         <%= image_tag "map-back.png" %>
         
         <div id="bottom">
-            <%= image_tag "recording.png", :id=>"recording",:style=>"left:68px;top:519px" %>
+            <%= image_tag "recording.png", :id=>"recording",:style=>"left:68px;top:519px;  margin-left: 65px;margin-top: 57px;" %>
         	<!-- <img class="abs" src="assets/images/recording.png" id="recording" style="left:68px;top:519px"/> -->
             <%= image_tag "loadblue.GIF", :class=>"abs load",:style=>"left:296px;top:494px",:id=>"l1" %>
         	<!-- <img src="Resources/loadblue.GIF" class="abs load" style="left:296px;top:494px" id="l1"/> -->
@@ -47,4 +49,3 @@ $('#compute').click(function () {
         </div>
     
     </div>
-</body>

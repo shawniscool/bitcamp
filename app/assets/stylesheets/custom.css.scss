@@ -5,7 +5,9 @@
   color:white;
   font: 30px/300px Helvetica, Arial, sans-serif;
 }
-
+*{
+	/*border-style: solid;*/
+}
 /*Henry's design*/
 html, body{
 	padding:0;
@@ -26,7 +28,7 @@ html, body{
 }
 #bottom{
 	width:100%;
-	background:#424242 url(Resources/bottom.png) left top no-repeat;
+	background:#424242 image-url("bottom.png") left top no-repeat;
 	height:178px
 }
 .abs{
