@@ -23,7 +23,6 @@ class AlertsController < ApplicationController
       	format.html { render action: "new" }
       	format.json { render json: @alert.errors, status: :unprocessable_entity }
       end
-  	  puts("create function for a new alert!!!")
     end
   end
 
