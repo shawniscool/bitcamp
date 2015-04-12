@@ -13,15 +13,15 @@ $(document).ready(function(){
 	function check(event){
 		// console.log(event.type);
 		if (event.type == "panleft"){
-			myElement.textContent = "left pan" +" gesture detected.";
+			// myElement.textContent = "left pan" +" gesture detected.";
 			console.log("aa");
 			counter = 5;
 		}else if (event.type == "pandown" && counter ==5){
-			myElement.textContent = "left pan" +"and down pan gesture detected.";
+			// myElement.textContent = "left pan" +"and down pan gesture detected.";
 			console.log("bb");
 			counter = 10;
 		}else if (event.type =="tap" && counter ==10){
-			myElement.textContent = "left, down pan and tap gestures are detected.";
+			// myElement.textContent = "left, down pan and tap gestures are detected.";
 			counter = 20;
 			console.log("cc");
 			if (sent == 0){
@@ -57,11 +57,11 @@ $(document).ready(function(){
 	function secondcheck(event){
 		// console.log(event.type);
 		if (event.type == "panright"){
-			myElement.textContent = "right pan" +" gesture detected.";
+			// myElement.textContent = "right pan" +" gesture detected.";
 			console.log("dd");
 			counter = 6;
 		}else if (event.type == "press" && counter ==6){
-			myElement.textContent = "right pan" +"and press gesture detected.";
+			// myElement.textContent = "right pan" +"and press gesture detected.";
 			console.log("ee");
 			counter = 11;
 			if (secondsent == 0){
