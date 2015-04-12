@@ -5,57 +5,71 @@ $(document).ready(function(){
 
 	// create a simple instance
 	// by default, it only adds horizontal recognizers
-	var first = new Hammer(myElement);
 	// listen to events...
 	// emergency.add(new Hammer.Pan({direction: Hammer.DIRECTION_ALL }));
 	// emergency.add(new Hammer.Pan({direction: Hammer.DIRECTION_LEFT }));
 
-	first.add( new Hammer.Pan({ direction: Hammer.DIRECTION_ALL, threshold: 0 }) );
+
+
+
+	// old workable verion
+	var first = new Hammer(myElement);
+	first.add( new Hammer.Pan({ event:"panleft",direction: Hammer.DIRECTION_LEFT, threshold: 0 }) );
+	first.add( new Hammer.Pan({ event:"pandown",direction: Hammer.DIRECTION_DOWN, threshold: 0 }) );
 	first.add( new Hammer.Tap({ event: 'tap', taps: 1 }) );
+	var counter;
+	// function panLeft(event){
+	// 	console.log(event.type);
+	// 	myElement.textContent = "left pan" +" gesture detected.";
+	// 	first.on("pandown",panDown);
+	// }
 
-	function panLeft(event){
-		console.log(event.type);
-		first.on("pandown",panDown);
-		myElement.textContent = "left pan" +" gesture detected.";
-	}
+	// function panDown(event){
+	// 	console.log(event.type);
+	// 	counter = 10;
+	// 	myElement.textContent = "left pan and down pan" +" gesture detected.";
+	// 	first.on("tap",emergency);
+	// }
 
-	function panDown(event){
-		console.log(event.type);
-		first.on("tap",emergency);
-		myElement.textContent = "left pan and down pan" +" gesture detected.";
-	}
+	// function emergency(event){
+	// 	console.log(event.type);
+	// 	myElement.textContent = "left pan, down pan and tap" +" gesture detected.";
+	// 	if (counter == 10){
+	// 		console.log("10 here!!!!");
+	// 	}else{
+	// 		counter++;
+	// 		console.log(counter);
+	// 	}
+	// 	$.post('/alerts#create',
+	// 		{alert:{address:"500 College Ave",city:"Swarthmore", state:"PA", content:"Emergency help!"} },
+	// 		function(){
+	// 			alert("create a new object");
+	// 		});
+	// }
 
-	function emergency(event){
-		console.log(event.type);
-		myElement.textContent = "left pan, down pan and tap" +" gesture detected.";
-
-		$.post('/alerts#create',
-			{alert:{address:"500 College Ave",city:"Swarthmore", state:"PA", content:"Emergency help!"} },
-			function(){
-				alert("create a new object");
+	first.on("panleft pandown tap", check);
+	counter = 0;
+	function check(event){
+		// console.log(event.type);
+		if (event.type == "panleft" && counter == 0){
+			console.log("should no more left");
+			counter = 5;
+		}else if (event.type == "pandown" && counter ==5){
+			console.log("should no more down");
+			counter = 10;
+		}else if (event.type =="tap" && counter ==10){
+			console.log("should no more tap");
+			counter = 20;
+			$.post('/alerts#create',
+				{alert:{address:"500 College Ave",city:"Swarthmore", state:"PA", content:"Emergency help!"} },
+				function(){
+					alert("create a new object");
 			});
 
-		// $.ajax({
-		//     url: "/alerts",
-		//     type: "POST",
-		//     data: {alert: {
-		//              address: "a", 
-		//              city: "b",}},
-		//     success: function(resp){alert("aa")}
-		// });
-		
-		// $.ajax({
-		// 	type:'POST', 
-		// 	url: '/test', 
-		// 	dataType: 'script',
-		// 	data: { name: "aa", address:"bb"} ,
-		// });
-
-
-		// $.ajax({url:"/alerts/new",type:"POST",});
+		}
 	}
 
-	first.on("panleft", panLeft);
+
 
 
 });
