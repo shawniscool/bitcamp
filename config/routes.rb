@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :messages
+
   # get 'alerts/new'
 
   root 'static_pages#home'
