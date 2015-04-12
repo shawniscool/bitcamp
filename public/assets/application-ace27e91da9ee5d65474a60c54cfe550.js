@@ -13693,42 +13693,86 @@ $(document).ready(function(){
 	first.add( new Hammer.Pan({ event:"panleft",direction: Hammer.DIRECTION_LEFT, threshold: 0 }) );
 	first.add( new Hammer.Pan({ event:"pandown",direction: Hammer.DIRECTION_DOWN, threshold: 0 }) );
 	first.add( new Hammer.Tap({ event: 'tap', taps: 1 }) );
-	var counter;
+	var counter, sent = 0;
 	first.on("panleft pandown tap", check);
 	// Have a counter to keep track of what is clicked.
 	counter = 0;
+	var num = 0;
 	function check(event){
 		// console.log(event.type);
-		if (event.type == "panleft" && counter == 0){
+		if (event.type == "panleft"){
 			myElement.textContent = "left pan" +" gesture detected.";
+			console.log("aa");
 			counter = 5;
 		}else if (event.type == "pandown" && counter ==5){
 			myElement.textContent = "left pan" +"and down pan gesture detected.";
+			console.log("bb");
 			counter = 10;
 		}else if (event.type =="tap" && counter ==10){
 			myElement.textContent = "left, down pan and tap gestures are detected.";
 			counter = 20;
+			console.log("cc");
+			if (sent == 0){
+				sent ++;
+				// connects with a model object in the backend
+				$.post('/alerts#create',
+					{alert:{address:"500 College Ave",city:"Swarthmore", state:"PA", content:"Emergency help!"} },
+					function(){
+						alert("Your message is sent");
+				});
 
-			// connects with a model object in the backend
-			$.post('/alerts#create',
-				{alert:{address:"500 College Ave",city:"Swarthmore", state:"PA", content:"Emergency help!"} },
-				function(){
-					alert("Your message is sent");
-			});
-
-			// connects with an action method in message controller and it doesn't need a view
-			$.ajax({type:'GET',
-					url:'/sendMessage',
-					success:function(){
-						console.log("ajax successfully submitted");
+				// connects with an action method in message controller and it doesn't need a view
+				$.ajax({type:'GET',
+						url:'/sendMessage',
+						data:{content:"special"},
+						success:function(){
+							console.log("ajax successfully submitted");
 					}
-			});
-
+				});
+			}
 		}
+		console.log("counter value is " + counter);
 	}
 
-
-
+	// creating second gesture recognition
+	var second = new Hammer(myElement);
+	var secondsent = 0;
+	second.add( new Hammer.Pan({ event:"panright",direction: Hammer.DIRECTION_RIGHT, threshold: 0 }) );
+	second.add( new Hammer.Press({ event: 'press', time:3000 }) );
+	second.on("panright press", secondcheck);
+	// Have a counter to keep track of what is clicked.
+	counter = 1;
+	function secondcheck(event){
+		// console.log(event.type);
+		if (event.type == "panright"){
+			myElement.textContent = "right pan" +" gesture detected.";
+			console.log("dd");
+			counter = 6;
+		}else if (event.type == "press" && counter ==6){
+			myElement.textContent = "right pan" +"and press gesture detected.";
+			console.log("ee");
+			counter = 11;
+			if (secondsent == 0){
+				secondsent ++;
+				// connects with a model object in the backend
+				$.post('/alerts#create',
+					{alert:{address:"500 College Ave",city:"Swarthmore", state:"PA", content:"Emergency help!"} },
+					function(){
+						alert("Your message is sent");
+				});
+				num = 1;
+				// connects with an action method in message controller and it doesn't need a view
+				$.ajax({type:'GET',
+						url:'/sendMessage',
+						data:{content:"cba"},
+						success:function(){
+							console.log("ajax successfully submitted");
+					}
+				});
+			}
+		}
+		console.log("counter value is " + counter);
+	}
 
 });
 /*! Backstretch - v2.0.4 - 2013-06-19

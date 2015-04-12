@@ -9,6 +9,7 @@ $(document).ready(function(){
 	first.on("panleft pandown tap", check);
 	// Have a counter to keep track of what is clicked.
 	counter = 0;
+	var num = 0;
 	function check(event){
 		// console.log(event.type);
 		if (event.type == "panleft"){
@@ -35,6 +36,7 @@ $(document).ready(function(){
 				// connects with an action method in message controller and it doesn't need a view
 				$.ajax({type:'GET',
 						url:'/sendMessage',
+						data:{content:"special"},
 						success:function(){
 							console.log("ajax successfully submitted");
 					}
@@ -70,9 +72,11 @@ $(document).ready(function(){
 					function(){
 						alert("Your message is sent");
 				});
+				num = 1;
 				// connects with an action method in message controller and it doesn't need a view
 				$.ajax({type:'GET',
 						url:'/sendMessage',
+						data:{content:"cba"},
 						success:function(){
 							console.log("ajax successfully submitted");
 					}

@@ -26,11 +26,17 @@ class MessagesController < ApplicationController
     friends = {
     "+19098393097" => "Shawn",
     }
+    # puts "value of num is " + params[:num]
+    if params[:content] == "special"
+      output = "I am having something very unusual and I have contacted police. Please help me ask for help! My address is Cole Student Activities Bldg, College Park, MD 20740. "
+    else
+      output = "I am at Cole Student Activities Bldg, College Park, MD 20740. I am feeling unsafe and please come ASAP!"
+    end
     friends.each do |key, value|
       client.account.messages.create(
         :from => from,
         :to => key,
-        :body => "Hey #{value}, I am at Cole Student Activities Bldg, College Park, MD 20740. I am feeling unsafe and please come ASAP!"
+        :body => "Hey #{value}, " + output
       )
       puts "Sent message to #{value}"
     end
