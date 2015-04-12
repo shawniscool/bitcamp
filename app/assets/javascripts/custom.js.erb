@@ -13,13 +13,16 @@ $(document).ready(function(){
 		// console.log(event.type);
 		if (event.type == "panleft" && counter == 0){
 			myElement.textContent = "left pan" +" gesture detected.";
+			console.log("aa");
 			counter = 5;
 		}else if (event.type == "pandown" && counter ==5){
 			myElement.textContent = "left pan" +"and down pan gesture detected.";
+			console.log("bb");
 			counter = 10;
 		}else if (event.type =="tap" && counter ==10){
 			myElement.textContent = "left, down pan and tap gestures are detected.";
 			counter = 20;
+			console.log("cc");
 
 			// connects with a model object in the backend
 			$.post('/alerts#create',
