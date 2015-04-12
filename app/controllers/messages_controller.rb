@@ -24,7 +24,7 @@ class MessagesController < ApplicationController
     from = "+19093783080" # Your Twilio number
      
     friends = {
-    # "+19098393097" => "Shawn",
+    "+19098393097" => "Shawn",
     }
     friends.each do |key, value|
       client.account.messages.create(
