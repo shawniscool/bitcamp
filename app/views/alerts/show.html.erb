@@ -1,0 +1,50 @@
+<script type="text/javascript">
+$( document ).ready(function() {
+    (function pulse(){
+        $('#recording').delay(200).fadeOut('slow').delay(50).fadeIn('slow',pulse);
+    })();
+    
+$('#l1').delay(1029).attr("src",<%= image_path("checked.png") %>);
+
+$('#compute').click(function () {
+   $('#compute').hide();
+   $('#loading').fadeIn('slow').delay(4000).fadeOut('slow');
+   $('#output').delay(4001).fadeIn('slow');
+   $('#editor').fadeOut('fast');
+   $('#mid-compute').delay(4010).slideDown('slow');
+});
+});
+</script>
+<body>
+	<div id="stage1">
+    
+    </div>
+    
+    <div id="stage2" class="full">
+    
+    	<!-- <img src="Resources/map-back.png" /> -->
+        <%= image_tag "map-back.png" %>
+        
+        <div id="bottom">
+            <%= image_tag "recording.png", :id=>"recording",:style=>"left:68px;top:519px" %>
+        	<!-- <img class="abs" src="assets/images/recording.png" id="recording" style="left:68px;top:519px"/> -->
+            <%= image_tag "loadblue.GIF", :class=>"abs load",:style=>"left:296px;top:494px",:id=>"l1" %>
+        	<!-- <img src="Resources/loadblue.GIF" class="abs load" style="left:296px;top:494px" id="l1"/> -->
+            <%= image_tag "loadblue.GIF", :class=>"abs load",:style=>"left:428px;top:494px",:id=>"l2" %>
+        	<!-- <img src="Resources/loadblue.GIF" class="abs load" style="left:428px;top:494px" id="l2"/> -->
+            <%= image_tag "loadblue.GIF", :class=>"abs load",:style=>"left:571px;top:494px",:id=>"l3" %>
+
+        	<!-- <img src="Resources/loadblue.GIF" class="abs load" style="left:571px;top:494px" id="l3"/> -->
+
+            <%= image_tag "loadblue.GIF", :class=>"abs load",:style=>"left:735px;top:494px",:id=>"l4" %>
+
+        	<!-- <img src="Resources/loadred.GIF" class="abs load" style="left:735px;top:494px" id="l4"/> -->
+            <%= image_tag "loadred.GIF", :class=>"abs load",:style=>"left:884px;top:494px",:id=>"l5" %>
+
+        	<!-- <img src="Resources/loadred.GIF" class="abs load" style="left:884px;top:494px" id="l5"/> -->
+            <%= image_tag "loadtweet.GIF", :class=>"abs load",:style=>"left:1048px;top:494px",:id=>"l6" %>
+        	<!-- <img src="Resources/loadtweet.GIF" class="abs load" style="left:1048px;top:494px" id="l6"/> -->
+        </div>
+    
+    </div>
+</body>

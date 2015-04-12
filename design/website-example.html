@@ -1,0 +1,79 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Jarvis Computing</title>
+<script src="Resources/jquery.min.js"></script>
+<script src="Resources/jquery.backstretch.min.js"></script>
+<style type="text/css">
+html, body{
+	padding:0;
+	margin:0;
+	background:#424242;
+	color:black;
+	font-family: 'Open Sans', sans-serif;
+	font-weight:300;
+	width:100%;
+	height:100%;
+}
+.hide{
+	display:none
+}
+.full{
+	width:100%;
+	height:100%;
+}
+#bottom{
+	width:100%;
+	background:#424242 url(Resources/bottom.png) left top no-repeat;
+	height:178px
+}
+.abs{
+	position:absolute;
+	display:block;
+	z-index:2;
+}
+</style>
+<script type="text/javascript">
+$( document ).ready(function() {
+    (function pulse(){
+        $('#recording').delay(200).fadeOut('slow').delay(50).fadeIn('slow',pulse);
+    })();
+	
+$('#l1').delay(1029).attr("src","Resources/checked.png");
+
+$('#compute').click(function () {
+   $('#compute').hide();
+   $('#loading').fadeIn('slow').delay(4000).fadeOut('slow');
+   $('#output').delay(4001).fadeIn('slow');
+   $('#editor').fadeOut('fast');
+   $('#mid-compute').delay(4010).slideDown('slow');
+});
+});
+</script></head>
+
+<body>
+	<div id="stage1">
+    
+    </div>
+    
+    <div id="stage2" class="full">
+    
+    	<img src="Resources/map-back.png" />
+        
+        <div id="bottom">
+        
+        	<img class="abs" src="Resources/recording.png" id="recording" style="left:68px;top:519px"/>
+        
+        
+        	<img src="Resources/loadblue.GIF" class="abs load" style="left:296px;top:494px" id="l1"/>
+        	<img src="Resources/loadblue.GIF" class="abs load" style="left:428px;top:494px" id="l2"/>
+        	<img src="Resources/loadblue.GIF" class="abs load" style="left:571px;top:494px" id="l3"/>
+        	<img src="Resources/loadred.GIF" class="abs load" style="left:735px;top:494px" id="l4"/>
+        	<img src="Resources/loadred.GIF" class="abs load" style="left:884px;top:494px" id="l5"/>
+        	<img src="Resources/loadtweet.GIF" class="abs load" style="left:1048px;top:494px" id="l6"/>
+        </div>
+    
+    </div>
+</body>
+</html>
