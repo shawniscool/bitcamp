@@ -13687,55 +13687,15 @@ if (typeof define == TYPE_FUNCTION && define.amd) {
 
 }).call(this);
 $(document).ready(function(){
-	// $('h1').addClass('aaa');
-	// alert("start");
 	var myElement = document.getElementById('myElement');
-
-	// create a simple instance
-	// by default, it only adds horizontal recognizers
-	// listen to events...
-	// emergency.add(new Hammer.Pan({direction: Hammer.DIRECTION_ALL }));
-	// emergency.add(new Hammer.Pan({direction: Hammer.DIRECTION_LEFT }));
-
-
-
-
-	// old workable verion
+	// workable verion
 	var first = new Hammer(myElement);
 	first.add( new Hammer.Pan({ event:"panleft",direction: Hammer.DIRECTION_LEFT, threshold: 0 }) );
 	first.add( new Hammer.Pan({ event:"pandown",direction: Hammer.DIRECTION_DOWN, threshold: 0 }) );
 	first.add( new Hammer.Tap({ event: 'tap', taps: 1 }) );
 	var counter;
-	// function panLeft(event){
-	// 	console.log(event.type);
-	// 	myElement.textContent = "left pan" +" gesture detected.";
-	// 	first.on("pandown",panDown);
-	// }
-
-	// function panDown(event){
-	// 	console.log(event.type);
-	// 	counter = 10;
-	// 	myElement.textContent = "left pan and down pan" +" gesture detected.";
-	// 	first.on("tap",emergency);
-	// }
-
-	// function emergency(event){
-	// 	console.log(event.type);
-	// 	myElement.textContent = "left pan, down pan and tap" +" gesture detected.";
-	// 	if (counter == 10){
-	// 		console.log("10 here!!!!");
-	// 	}else{
-	// 		counter++;
-	// 		console.log(counter);
-	// 	}
-	// 	$.post('/alerts#create',
-	// 		{alert:{address:"500 College Ave",city:"Swarthmore", state:"PA", content:"Emergency help!"} },
-	// 		function(){
-	// 			alert("create a new object");
-	// 		});
-	// }
-
 	first.on("panleft pandown tap", check);
+	// Have a counter to keep track of what is clicked.
 	counter = 0;
 	function check(event){
 		// console.log(event.type);
@@ -13746,15 +13706,22 @@ $(document).ready(function(){
 			myElement.textContent = "left pan" +"and down pan gesture detected.";
 			counter = 10;
 		}else if (event.type =="tap" && counter ==10){
-			console.log("left, down pan and tap gestures are detected");
+			myElement.textContent = "left, down pan and tap gestures are detected.";
 			counter = 20;
+
+			// connects with a model object in the backend
 			$.post('/alerts#create',
 				{alert:{address:"500 College Ave",city:"Swarthmore", state:"PA", content:"Emergency help!"} },
 				function(){
 					alert("Your message is sent");
 			});
-			$.ajax('/messages#sendMessage',function(){
-				console.log("ajax successfully submitted");
+
+			// connects with an action method in message controller and it doesn't need a view
+			$.ajax({type:'GET',
+					url:'/sendMessage',
+					success:function(){
+						console.log("ajax successfully submitted");
+					}
 			});
 
 		}

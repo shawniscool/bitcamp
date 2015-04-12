@@ -1,0 +1,141 @@
+/* line 1, /Users/xiangpan/Documents/px/Programming/GitHub/bitcamp/app/assets/stylesheets/custom.css.scss */
+#myElement {
+  background: black;
+  height: 100%;
+  text-align: center;
+  color: white;
+  font: 30px/300px Helvetica, Arial, sans-serif;
+}
+
+/*Henry's design*/
+/* line 10, /Users/xiangpan/Documents/px/Programming/GitHub/bitcamp/app/assets/stylesheets/custom.css.scss */
+html, body {
+  padding: 0;
+  margin: 0;
+  background: #424242;
+  color: black;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 300;
+  width: 100%;
+  height: 100%;
+}
+
+/* line 20, /Users/xiangpan/Documents/px/Programming/GitHub/bitcamp/app/assets/stylesheets/custom.css.scss */
+.hide {
+  display: none;
+}
+
+/* line 23, /Users/xiangpan/Documents/px/Programming/GitHub/bitcamp/app/assets/stylesheets/custom.css.scss */
+.full {
+  width: 100%;
+  height: 100%;
+}
+
+/* line 27, /Users/xiangpan/Documents/px/Programming/GitHub/bitcamp/app/assets/stylesheets/custom.css.scss */
+#bottom {
+  width: 100%;
+  background: #424242 url(/assets/bottom-329178554a00e8b41a56c71fe1585f9b.png) left top no-repeat;
+  height: 178px;
+}
+
+/* line 32, /Users/xiangpan/Documents/px/Programming/GitHub/bitcamp/app/assets/stylesheets/custom.css.scss */
+.abs {
+  position: absolute;
+  display: block;
+  z-index: 2;
+}
+/* line 1, /Users/xiangpan/Documents/px/Programming/GitHub/bitcamp/app/assets/stylesheets/scaffolds.scss */
+body {
+  background-color: #fff;
+  color: #333;
+  font-family: verdana, arial, helvetica, sans-serif;
+  font-size: 13px;
+  line-height: 18px;
+}
+
+/* line 9, /Users/xiangpan/Documents/px/Programming/GitHub/bitcamp/app/assets/stylesheets/scaffolds.scss */
+p, ol, ul, td {
+  font-family: verdana, arial, helvetica, sans-serif;
+  font-size: 13px;
+  line-height: 18px;
+}
+
+/* line 15, /Users/xiangpan/Documents/px/Programming/GitHub/bitcamp/app/assets/stylesheets/scaffolds.scss */
+pre {
+  background-color: #eee;
+  padding: 10px;
+  font-size: 11px;
+}
+
+/* line 21, /Users/xiangpan/Documents/px/Programming/GitHub/bitcamp/app/assets/stylesheets/scaffolds.scss */
+a {
+  color: #000;
+}
+/* line 23, /Users/xiangpan/Documents/px/Programming/GitHub/bitcamp/app/assets/stylesheets/scaffolds.scss */
+a:visited {
+  color: #666;
+}
+/* line 26, /Users/xiangpan/Documents/px/Programming/GitHub/bitcamp/app/assets/stylesheets/scaffolds.scss */
+a:hover {
+  color: #fff;
+  background-color: #000;
+}
+
+/* line 33, /Users/xiangpan/Documents/px/Programming/GitHub/bitcamp/app/assets/stylesheets/scaffolds.scss */
+div.field, div.actions {
+  margin-bottom: 10px;
+}
+
+/* line 38, /Users/xiangpan/Documents/px/Programming/GitHub/bitcamp/app/assets/stylesheets/scaffolds.scss */
+#notice {
+  color: green;
+}
+
+/* line 42, /Users/xiangpan/Documents/px/Programming/GitHub/bitcamp/app/assets/stylesheets/scaffolds.scss */
+.field_with_errors {
+  padding: 2px;
+  background-color: red;
+  display: table;
+}
+
+/* line 48, /Users/xiangpan/Documents/px/Programming/GitHub/bitcamp/app/assets/stylesheets/scaffolds.scss */
+#error_explanation {
+  width: 450px;
+  border: 2px solid red;
+  padding: 7px;
+  padding-bottom: 0;
+  margin-bottom: 20px;
+  background-color: #f0f0f0;
+}
+/* line 55, /Users/xiangpan/Documents/px/Programming/GitHub/bitcamp/app/assets/stylesheets/scaffolds.scss */
+#error_explanation h2 {
+  text-align: left;
+  font-weight: bold;
+  padding: 5px 5px 5px 15px;
+  font-size: 12px;
+  margin: -7px;
+  margin-bottom: 0px;
+  background-color: #c00;
+  color: #fff;
+}
+/* line 65, /Users/xiangpan/Documents/px/Programming/GitHub/bitcamp/app/assets/stylesheets/scaffolds.scss */
+#error_explanation ul li {
+  font-size: 12px;
+  list-style: square;
+}
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+
+
+ */
+
