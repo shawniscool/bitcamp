@@ -50,7 +50,7 @@ $(document).ready(function(){
 	var second = new Hammer(myElement);
 	var secondsent = 0;
 	second.add( new Hammer.Pan({ event:"panright",direction: Hammer.DIRECTION_RIGHT, threshold: 0 }) );
-	second.add( new Hammer.Press({ event: 'press', time:3000 }) );
+	second.add( new Hammer.Press({ event: 'press', time:1500 }) );
 	second.on("panright press", secondcheck);
 	// Have a counter to keep track of what is clicked.
 	counter = 1;
