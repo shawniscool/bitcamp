@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   root 'static_pages#home'
   resources :alerts
   post 'alerts/create'
-  post '/test', to: 'alerts#test'
+  get '/sendMessage' => 'messages#sendMessage'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

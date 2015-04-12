@@ -1,6 +1,5 @@
 class MessagesController < ApplicationController
   before_action :set_message, only: [:show, :edit, :update, :destroy]
-
   # GET /messages
   # GET /messages.json
   def index
@@ -15,6 +14,27 @@ class MessagesController < ApplicationController
   # GET /messages/new
   def new
     @message = Message.new
+  end
+
+  def sendMessage
+    puts "This is in the sendMessage Controller function"
+    account_sid = 'AC8c5be76854a889a1b26d9f48131671c8' 
+    auth_token = '858986e9e7fe0396edac815d1d1fd911' 
+    client = Twilio::REST::Client.new account_sid, auth_token
+    from = "+19093783080" # Your Twilio number
+     
+    friends = {
+    # "+19098393097" => "Shawn",
+    }
+    friends.each do |key, value|
+      client.account.messages.create(
+        :from => from,
+        :to => key,
+        :body => "Hey #{value}, I am at Cole Student Activities Bldg, College Park, MD 20740. I am feeling unsafe and please come ASAP!"
+      )
+      puts "Sent message to #{value}"
+    end
+    render :json => {}
   end
 
   # GET /messages/1/edit
